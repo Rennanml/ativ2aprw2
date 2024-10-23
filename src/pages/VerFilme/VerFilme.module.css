@@ -1,0 +1,30 @@
+/* VerFilme.module.css */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .heading {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+  }
+  
+  p {
+    font-size: 1.2em;
+    color: #555;
+    margin: 10px 0;
+  }
+  
+  .mensagem {
+    text-align: center;
+    font-size: 1.2em;
+    color: #155724;
+    margin-top: 20px;
+  }
+  

@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  min-height: 100%;
+  position: relative;
+}
+
+.main-content {
+  padding-bottom: 60px; /* Espaço para o rodapé */
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
