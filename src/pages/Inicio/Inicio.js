@@ -25,6 +25,7 @@ const Inicio = () => {
           {filmes.map(filme => (
             <li key={filme.id} className={styles.filmeItem}>
               <h2>{filme.nome}</h2>
+              <p><strong>id:</strong> {filme.id}</p>
               <p><strong>Ano de Lançamento:</strong> {filme.ano}</p>
               <p><strong>Gênero:</strong> {filme.genero}</p>
               <Link to={`/ver-filme/${filme.id}`}>Ver Detalhes</Link>
