@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import styles from './AdicionarFilme.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const AdicionarFilme = () => {
   const [nome, setNome] = useState('');
@@ -29,6 +30,19 @@ const AdicionarFilme = () => {
         console.error("Erro ao cadastrar o filme: ", error);
         setMensagem("Erro ao cadastrar o filme. Tente novamente.");
       });
+  };
+
+  const handleClearForm = () => {
+    setNome('');
+    setAno('');
+    setGenero('');
+    setMensagem('');
+  };
+
+  const navigate = useNavigate();
+
+  const handlePagInicial = () => {
+    navigate('/');
   };
 
   return (
@@ -65,7 +79,11 @@ const AdicionarFilme = () => {
             required 
           />
         </div>
-        <button type="submit" className={styles.button}>Cadastrar Filme</button>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}>
+          <button type="submit" className={`${styles.button} ${styles.button}`}>Cadastrar Filme</button>
+          <button type="button" onClick={handleClearForm} className={`${styles.button} ${styles.buttonClear}`}>Limpar Formulário</button>
+          <button type="button" onClick={handlePagInicial} className={`${styles.button} ${styles.buttonVoltar}`}>Página Inicial</button>
+        </div>
       </form>
       {mensagem && <p className={styles.mensagem}>{mensagem}</p>}
     </div>

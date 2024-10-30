@@ -27,4 +27,21 @@
     color: #155724;
     margin-top: 20px;
   }
+
+  .buttonVoltar {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    margin-bottom: 35px;
+  }
+  
+  .buttonVoltar:hover {
+    background-color: #218838;
+  }
   
