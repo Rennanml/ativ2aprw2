@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import styles from './ApagarFilme.module.css';
+import { useNavigate } from 'react-router-dom';
+
 
 const ApagarFilme = () => {
   const [id, setId] = useState('');
@@ -32,6 +34,20 @@ const ApagarFilme = () => {
       });
   };
 
+
+    const navigate = useNavigate();
+  
+    const handlePagInicial = () => {
+      navigate('/');
+    }
+
+    const handleVoltar = () => {
+      setId('');
+      setFilme(null);
+      setMensagem('');
+      navigate('/apagar-filme');
+    };
+
   return (
     <div className={styles.container}>
       <h1 className={styles.heading}>Excluir Filme</h1>
@@ -45,6 +61,7 @@ const ApagarFilme = () => {
           required 
         />
         <button onClick={buscarFilme} className={styles.button}>Buscar Filme</button>
+        <button onClick={handlePagInicial} className={styles.buttonVoltar}>Página Inicial</button>
       </div>
 
       {filme && (
@@ -53,6 +70,7 @@ const ApagarFilme = () => {
           <p>Ano: {filme.ano}</p>
           <p>Gênero: {filme.genero}</p>
           <button onClick={handleExcluir} className={styles.buttonExcluir}>Excluir Filme</button>
+          <p><button onClick={handleVoltar} className={styles.buttonVoltar}>Voltar</button></p>
         </div>
       )}
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import styles from './AlterarFilme.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const AlterarFilme = () => {
   const [id, setId] = useState('');
@@ -36,6 +37,19 @@ const AlterarFilme = () => {
     setFilme({ ...filme, [e.target.name]: e.target.value });
   };
 
+  const navigate = useNavigate();
+  
+  const handlePagInicial = () => {
+    navigate('/');
+  }
+
+  const handleVoltar = () => {
+    setId('');
+    setFilme(null);
+    setMensagem('');
+    navigate('/alterar-filme');
+  };
+
   return (
     <div className={styles.container}>
       <h1 className={styles.heading}>Alterar Filme</h1>
@@ -49,6 +63,7 @@ const AlterarFilme = () => {
           required 
         />
         <button onClick={buscarFilme} className={styles.button}>Buscar Filme</button>
+        <button onClick={handlePagInicial} className={styles.buttonVoltar}>Página Inicial</button>
       </div>
 
       {filme && (
@@ -84,6 +99,7 @@ const AlterarFilme = () => {
             />
           </div>
           <button type="submit" className={styles.button}>Alterar Filme</button>
+          <p><button onClick={handleVoltar} className={styles.buttonVoltar}>Voltar</button></p>
         </form>
       )}
 
